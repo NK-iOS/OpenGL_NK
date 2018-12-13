@@ -16,6 +16,7 @@
 		1B24435E21C0031700A57FF3 /* OpenGL_1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B24435D21C0031700A57FF3 /* OpenGL_1Tests.m */; };
 		1B24436921C0031700A57FF3 /* OpenGL_1UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B24436821C0031700A57FF3 /* OpenGL_1UITests.m */; };
 		1B24437721C0037B00A57FF3 /* gl_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B24437621C0037B00A57FF3 /* gl_test.png */; };
+		1B24437921C2085D00A57FF3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1B24437821C2085D00A57FF3 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		1B24436821C0031700A57FF3 /* OpenGL_1UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenGL_1UITests.m; sourceTree = "<group>"; };
 		1B24436A21C0031700A57FF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B24437621C0037B00A57FF3 /* gl_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gl_test.png; sourceTree = "<group>"; };
+		1B24437821C2085D00A57FF3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		1B24434321C0031700A57FF3 /* OpenGL_1 */ = {
 			isa = PBXGroup;
 			children = (
+				1B24437821C2085D00A57FF3 /* README.md */,
 				1B24437621C0037B00A57FF3 /* gl_test.png */,
 				1B24434421C0031700A57FF3 /* AppDelegate.h */,
 				1B24434521C0031700A57FF3 /* AppDelegate.m */,
@@ -243,6 +246,7 @@
 			files = (
 				1B24437721C0037B00A57FF3 /* gl_test.png in Resources */,
 				1B24435121C0031700A57FF3 /* LaunchScreen.storyboard in Resources */,
+				1B24437921C2085D00A57FF3 /* README.md in Resources */,
 				1B24434E21C0031700A57FF3 /* Assets.xcassets in Resources */,
 				1B24434C21C0031700A57FF3 /* Main.storyboard in Resources */,
 			);
