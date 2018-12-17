@@ -20,6 +20,7 @@
     
     GLView *view = [[GLView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:view];
+    
 }
 
 @end

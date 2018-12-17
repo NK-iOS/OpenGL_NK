@@ -17,9 +17,9 @@
 		1B37EA5421C5548600FA60C2 /* OpenGL_ShaderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B37EA5321C5548600FA60C2 /* OpenGL_ShaderUITests.m */; };
 		1B37EA6A21C555B700FA60C2 /* gl_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B37EA6921C555B700FA60C2 /* gl_test.png */; };
 		1B37EA6C21C555CA00FA60C2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1B37EA6B21C555CA00FA60C2 /* README.md */; };
-		1B37EA6E21C624AC00FA60C2 /* shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 1B37EA6D21C624AC00FA60C2 /* shaderv.vsh */; };
-		1B37EA7021C624C900FA60C2 /* shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 1B37EA6F21C624C900FA60C2 /* shaderf.fsh */; };
 		1B37EA7321C62CBA00FA60C2 /* GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B37EA7221C62CBA00FA60C2 /* GLView.m */; };
+		1B37EA7D21C67C5000FA60C2 /* shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 1B37EA7B21C67C4F00FA60C2 /* shaderv.vsh */; };
+		1B37EA7E21C67C5000FA60C2 /* shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 1B37EA7C21C67C4F00FA60C2 /* shaderf.fsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,10 +58,10 @@
 		1B37EA5521C5548600FA60C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B37EA6921C555B700FA60C2 /* gl_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gl_test.png; sourceTree = "<group>"; };
 		1B37EA6B21C555CA00FA60C2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		1B37EA6D21C624AC00FA60C2 /* shaderv.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = shaderv.vsh; sourceTree = "<group>"; };
-		1B37EA6F21C624C900FA60C2 /* shaderf.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = shaderf.fsh; sourceTree = "<group>"; };
 		1B37EA7121C62CBA00FA60C2 /* GLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLView.h; sourceTree = "<group>"; };
 		1B37EA7221C62CBA00FA60C2 /* GLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLView.m; sourceTree = "<group>"; };
+		1B37EA7B21C67C4F00FA60C2 /* shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shaderv.vsh; sourceTree = "<group>"; };
+		1B37EA7C21C67C4F00FA60C2 /* shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shaderf.fsh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,8 +125,8 @@
 				1B37EA3A21C5548600FA60C2 /* LaunchScreen.storyboard */,
 				1B37EA3D21C5548600FA60C2 /* Info.plist */,
 				1B37EA3E21C5548600FA60C2 /* main.m */,
-				1B37EA6D21C624AC00FA60C2 /* shaderv.vsh */,
-				1B37EA6F21C624C900FA60C2 /* shaderf.fsh */,
+				1B37EA7B21C67C4F00FA60C2 /* shaderv.vsh */,
+				1B37EA7C21C67C4F00FA60C2 /* shaderf.fsh */,
 			);
 			path = OpenGL_Shader;
 			sourceTree = "<group>";
@@ -258,10 +258,10 @@
 				1B37EA6A21C555B700FA60C2 /* gl_test.png in Resources */,
 				1B37EA3C21C5548600FA60C2 /* LaunchScreen.storyboard in Resources */,
 				1B37EA6C21C555CA00FA60C2 /* README.md in Resources */,
-				1B37EA6E21C624AC00FA60C2 /* shaderv.vsh in Resources */,
+				1B37EA7D21C67C5000FA60C2 /* shaderv.vsh in Resources */,
 				1B37EA3921C5548600FA60C2 /* Assets.xcassets in Resources */,
 				1B37EA3721C5548600FA60C2 /* Main.storyboard in Resources */,
-				1B37EA7021C624C900FA60C2 /* shaderf.fsh in Resources */,
+				1B37EA7E21C67C5000FA60C2 /* shaderf.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

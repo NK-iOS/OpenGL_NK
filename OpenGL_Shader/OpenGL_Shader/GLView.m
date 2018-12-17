@@ -4,7 +4,7 @@
 //
 //  Created by 聂宽 on 2018/12/16.
 //  Copyright © 2018年 聂宽. All rights reserved.
-//
+// 1、忘记设置context    2、设置描绘属性    3、glVertexAttribPointer 纹理坐标偏移量设置错误
 
 #import "GLView.h"
 #import <OpenGLES/ES2/gl.h>
@@ -16,6 +16,7 @@
 @property (nonatomic, assign) GLuint myProgram;
 @property (nonatomic, assign) GLuint mColorRenderBuffer;
 @property (nonatomic, assign) GLuint mColorFrameBuffer;
+
 @end
 
 @implementation GLView
@@ -28,6 +29,8 @@
 - (void)layoutSubviews
 {
     [self setupLayer];
+    
+    [self setupContext];
     
     [self destoryRenderAndFrameBuffer];
     
@@ -49,13 +52,11 @@
     self.mEaglLayer.opaque = YES;
     
     // 设置描绘属性，设置不维持渲染内容以及颜色格式为 RGBA8
-    self.mEaglLayer.drawableProperties = @{
-                                           kEAGLColorFormatRGBA8 : [NSNumber numberWithBool:YES],
-                                           kEAGLDrawablePropertyColorFormat : kEAGLDrawablePropertyRetainedBacking
-                                           };
+    self.mEaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
+                                          [NSNumber numberWithBool:NO], kEAGLDrawablePropertyRetainedBacking, kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat, nil];
 }
 
-- (void)setuoContext
+- (void)setupContext
 {
     // 指定OpenGL渲染API版本
     EAGLRenderingAPI api = kEAGLRenderingAPIOpenGLES2;
@@ -140,7 +141,7 @@
     }
     
     // 顶点数据   前三个（x,y,z）顶点坐标，后两个（x,y）纹理坐标
-    GLfloat attrArr[] = {
+    GLfloat attrArr_s[] = {
         0.5f, -0.5f, -1.0f,     1.0f, 0.0f,
         -0.5f, 0.5f, -1.0f,     0.0f, 1.0f,
         -0.5f, -0.5f, -1.0f,    0.0f, 0.0f,
@@ -148,6 +149,15 @@
         0.5f, 0.5f, -1.0f,      1.0f, 1.0f,
         -0.5f, 0.5f, -1.0f,     0.0f, 1.0f,
         0.5f, -0.5f, -1.0f,     1.0f, 0.0f
+    };
+    GLfloat attrArr[] = {
+        0.5, -0.5, 0.0f,   1.0f, 0.0f, // 右下
+        0.5, 0.5, 0.0f,     1.0f, 1.0f, //右上
+        -0.5, 0.5, 0.0f,    0.0f, 1.0f, // 左上
+        
+        0.5, -0.5, 0.0f,    1.0f, 0.0f, //右下
+        -0.5, 0.5, 0.0f,    0.0f, 1.0f, // 左上
+        -0.5, -0.5, 0.0f,   0.0f, 0.0f, //左下
     };
     
     GLuint attrBuffer;
@@ -160,7 +170,7 @@
     glEnableVertexAttribArray(position);
     
     GLuint textCoor = glGetAttribLocation(self.myProgram, "textCoordinate");
-    glVertexAttribPointer(textCoor, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 5, NULL + 3);
+    glVertexAttribPointer(textCoor, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 5, (float *)NULL + 3);
     glEnableVertexAttribArray(textCoor);
     
     // 加载纹理
@@ -174,14 +184,15 @@
     float c = cos(radians);
     
     // z轴旋转矩阵
-    CGFloat zRotation[16] = {
+    GLfloat zRotation[16] = {
         c, -s, 0, 0.2,
         s, c, 0, 0,
         0, 0, 1.0, 0,
         0.0, 0, 0, 1.0
     };
+    
     // 设置选择矩阵
-    glUniformMatrix4fv(rotate, 1, GL_FALSE, (GLfloat *)&zRotation[0]);\
+    glUniformMatrix4fv(rotate, 1, GL_FALSE, (GLfloat *)&zRotation[0]);
     glDrawArrays(GL_TRIANGLES, 0, 6);
     [self.mContext presentRenderbuffer:GL_RENDERBUFFER];
 }

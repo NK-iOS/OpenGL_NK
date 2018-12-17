@@ -7,7 +7,7 @@ OpenGL 是在三维坐标系上绘制
     矩阵旋转（https://www.cnblogs.com/luweimy/p/4121789.html）
 顶点着色器：处理顶点
 片段着色器：处理像素点颜色
-
+这部分有点麻烦，犯了好几个错误
 2> glsl的编译过程类似c语言，主要有glCompileShader、glAttachShader、glLinkProgram三步
 
 3> GLSL能做什么？
