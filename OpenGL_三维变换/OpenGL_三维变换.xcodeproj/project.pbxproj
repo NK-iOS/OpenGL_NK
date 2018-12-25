@@ -20,6 +20,8 @@
 		1B7B4B9121D1DB5000B86C80 /* GLESMath.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B7B4B8B21D1DB5000B86C80 /* GLESMath.c */; };
 		1B7B4B9221D1DB5000B86C80 /* GLESUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7B4B8E21D1DB5000B86C80 /* GLESUtils.m */; };
 		1B7B4B9521D1DBAF00B86C80 /* GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7B4B9421D1DBAF00B86C80 /* GLView.m */; };
+		1B7B4B9721D2110C00B86C80 /* shaderv.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 1B7B4B9621D2110C00B86C80 /* shaderv.glsl */; };
+		1B7B4B9921D211EF00B86C80 /* shaderf.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 1B7B4B9821D211EF00B86C80 /* shaderf.glsl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		1B7B4B9021D1DB5000B86C80 /* Vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
 		1B7B4B9321D1DBAF00B86C80 /* GLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLView.h; sourceTree = "<group>"; };
 		1B7B4B9421D1DBAF00B86C80 /* GLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLView.m; sourceTree = "<group>"; };
+		1B7B4B9621D2110C00B86C80 /* shaderv.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = shaderv.glsl; sourceTree = "<group>"; };
+		1B7B4B9821D211EF00B86C80 /* shaderf.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = shaderf.glsl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,8 @@
 				1B7B4B5F21D1D91500B86C80 /* LaunchScreen.storyboard */,
 				1B7B4B6221D1D91500B86C80 /* Info.plist */,
 				1B7B4B6321D1D91500B86C80 /* main.m */,
+				1B7B4B9621D2110C00B86C80 /* shaderv.glsl */,
+				1B7B4B9821D211EF00B86C80 /* shaderf.glsl */,
 			);
 			path = "OpenGL_三维变换";
 			sourceTree = "<group>";
@@ -276,6 +282,8 @@
 				1B7B4B8821D1D95500B86C80 /* README.md in Resources */,
 				1B7B4B8921D1D95500B86C80 /* gl_test.png in Resources */,
 				1B7B4B5C21D1D91500B86C80 /* Main.storyboard in Resources */,
+				1B7B4B9721D2110C00B86C80 /* shaderv.glsl in Resources */,
+				1B7B4B9921D211EF00B86C80 /* shaderf.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
