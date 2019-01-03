@@ -18,6 +18,14 @@
 		1BDBA33021D66401006231F2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1BDBA32F21D66401006231F2 /* README.md */; };
 		1BDBA33621D6676E006231F2 /* PaintingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDBA33521D6676E006231F2 /* PaintingView.m */; };
 		1BDBA33921D66797006231F2 /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDBA33821D66797006231F2 /* SoundEffect.m */; };
+		1BDBA3DC21DC878D006231F2 /* point.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 1BDBA3DB21DC878D006231F2 /* point.vsh */; };
+		1BDBA3DE21DC8799006231F2 /* point.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 1BDBA3DD21DC8799006231F2 /* point.fsh */; };
+		1BDBA3E521DC899C006231F2 /* fileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDBA3E121DC899C006231F2 /* fileUtil.m */; };
+		1BDBA3E621DC899C006231F2 /* shaderUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 1BDBA3E221DC899C006231F2 /* shaderUtil.c */; };
+		1BDBA3E821DC950D006231F2 /* abc.string in Resources */ = {isa = PBXBuildFile; fileRef = 1BDBA3E721DC950D006231F2 /* abc.string */; };
+		1BDBA3EA21DDB783006231F2 /* Particle.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BDBA3E921DDB783006231F2 /* Particle.png */; };
+		1BDBA3EB21DDD99E006231F2 /* Erase.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1BDBA33221D66653006231F2 /* Erase.caf */; };
+		1BDBA3EC21DDD99E006231F2 /* Select.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1BDBA33321D66653006231F2 /* Select.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +69,15 @@
 		1BDBA33521D6676E006231F2 /* PaintingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaintingView.m; sourceTree = "<group>"; };
 		1BDBA33721D66797006231F2 /* SoundEffect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundEffect.h; sourceTree = "<group>"; };
 		1BDBA33821D66797006231F2 /* SoundEffect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoundEffect.m; sourceTree = "<group>"; };
+		1BDBA3DB21DC878D006231F2 /* point.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = point.vsh; sourceTree = "<group>"; };
+		1BDBA3DD21DC8799006231F2 /* point.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = point.fsh; sourceTree = "<group>"; };
+		1BDBA3E021DC899C006231F2 /* fileUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fileUtil.h; sourceTree = "<group>"; };
+		1BDBA3E121DC899C006231F2 /* fileUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fileUtil.m; sourceTree = "<group>"; };
+		1BDBA3E221DC899C006231F2 /* shaderUtil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = shaderUtil.c; sourceTree = "<group>"; };
+		1BDBA3E321DC899C006231F2 /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
+		1BDBA3E421DC899C006231F2 /* shaderUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shaderUtil.h; sourceTree = "<group>"; };
+		1BDBA3E721DC950D006231F2 /* abc.string */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = abc.string; sourceTree = "<group>"; };
+		1BDBA3E921DDB783006231F2 /* Particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +130,7 @@
 			children = (
 				1BDBA33121D66641006231F2 /* Rsource */,
 				1BDBA32F21D66401006231F2 /* README.md */,
+				1BDBA3DF21DC8979006231F2 /* OtherClass */,
 				1BDBA2FD21D66388006231F2 /* AppDelegate.h */,
 				1BDBA2FE21D66388006231F2 /* AppDelegate.m */,
 				1BDBA30021D66388006231F2 /* ViewController.h */,
@@ -126,6 +144,8 @@
 				1BDBA30821D66388006231F2 /* LaunchScreen.storyboard */,
 				1BDBA30B21D66388006231F2 /* Info.plist */,
 				1BDBA30C21D66388006231F2 /* main.m */,
+				1BDBA3DB21DC878D006231F2 /* point.vsh */,
+				1BDBA3DD21DC8799006231F2 /* point.fsh */,
 			);
 			path = "OpenGL_画图";
 			sourceTree = "<group>";
@@ -151,10 +171,24 @@
 		1BDBA33121D66641006231F2 /* Rsource */ = {
 			isa = PBXGroup;
 			children = (
+				1BDBA3E921DDB783006231F2 /* Particle.png */,
+				1BDBA3E721DC950D006231F2 /* abc.string */,
 				1BDBA33221D66653006231F2 /* Erase.caf */,
 				1BDBA33321D66653006231F2 /* Select.caf */,
 			);
 			path = Rsource;
+			sourceTree = "<group>";
+		};
+		1BDBA3DF21DC8979006231F2 /* OtherClass */ = {
+			isa = PBXGroup;
+			children = (
+				1BDBA3E321DC899C006231F2 /* debug.h */,
+				1BDBA3E021DC899C006231F2 /* fileUtil.h */,
+				1BDBA3E121DC899C006231F2 /* fileUtil.m */,
+				1BDBA3E221DC899C006231F2 /* shaderUtil.c */,
+				1BDBA3E421DC899C006231F2 /* shaderUtil.h */,
+			);
+			path = OtherClass;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,8 +297,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BDBA3EB21DDD99E006231F2 /* Erase.caf in Resources */,
+				1BDBA3EC21DDD99E006231F2 /* Select.caf in Resources */,
 				1BDBA30A21D66388006231F2 /* LaunchScreen.storyboard in Resources */,
 				1BDBA30721D66388006231F2 /* Assets.xcassets in Resources */,
+				1BDBA3E821DC950D006231F2 /* abc.string in Resources */,
+				1BDBA3EA21DDB783006231F2 /* Particle.png in Resources */,
+				1BDBA3DE21DC8799006231F2 /* point.fsh in Resources */,
+				1BDBA3DC21DC878D006231F2 /* point.vsh in Resources */,
 				1BDBA33021D66401006231F2 /* README.md in Resources */,
 				1BDBA30521D66388006231F2 /* Main.storyboard in Resources */,
 			);
@@ -294,7 +334,9 @@
 				1BDBA33921D66797006231F2 /* SoundEffect.m in Sources */,
 				1BDBA30221D66388006231F2 /* ViewController.m in Sources */,
 				1BDBA30D21D66388006231F2 /* main.m in Sources */,
+				1BDBA3E521DC899C006231F2 /* fileUtil.m in Sources */,
 				1BDBA33621D6676E006231F2 /* PaintingView.m in Sources */,
+				1BDBA3E621DC899C006231F2 /* shaderUtil.c in Sources */,
 				1BDBA2FF21D66388006231F2 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
