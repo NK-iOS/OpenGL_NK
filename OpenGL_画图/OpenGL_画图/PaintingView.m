@@ -95,12 +95,21 @@ typedef struct {
     
     NSMutableArray *lyArr;
 }
+@property (nonatomic, strong) NSMutableArray *pointArr;
 @end
 
 @implementation PaintingView
 
 @synthesize location;
 @synthesize previousLocation;
+
+- (NSMutableArray *)pointArr
+{
+    if (_pointArr == nil) {
+        _pointArr = [NSMutableArray array];
+    }
+    return _pointArr;
+}
 
 + (Class)layerClass
 {
@@ -298,12 +307,12 @@ typedef struct {
         point1.y = lyPoint1.mY.floatValue;
         point2.x = lyPoint2.mX.floatValue;
         point2.y = lyPoint2.mY.floatValue;
-        [self renderLineFormPoint:point1 toPoint:point2];
+        [self renderLineFromPoint:point1 toPoint:point2];
     }
 }
 
 // drawings a line on screen based on where the user touches
-- (void)renderLineFormPoint:(CGPoint)start toPoint:(CGPoint)end
+- (void)renderLineFromPoint:(CGPoint)start toPoint:(CGPoint)end
 {
     static GLfloat *vertexBuffer = NULL;
     static NSUInteger vertexMax = 64;
@@ -380,6 +389,11 @@ typedef struct {
 
 - (void)erase{
     [EAGLContext setCurrentContext:context];
+    if (_pointArr) {
+        NSData *data = [NSJSONSerialization dataWithJSONObject:_pointArr options:NSJSONWritingPrettyPrinted  error:nil];
+        NSString *jsonStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"%@", jsonStr);
+    }
     
     // clear the buffer
     glBindFramebuffer(GL_FRAMEBUFFER, viewFramebuffer);
@@ -401,6 +415,11 @@ typedef struct {
     // Convert touch point from UIView referential to OpenGL one (upside-down flip)
     location = [touch locationInView:self];
     location.y = bounds.size.height - location.y;
+    
+    NSMutableDictionary *pointDict = [NSMutableDictionary dictionary];
+    [pointDict setObject:[NSNumber numberWithFloat:location.x] forKey:@"mX"];
+    [pointDict setObject:[NSNumber numberWithFloat:location.y] forKey:@"mY"];
+    [self.pointArr addObject:pointDict];
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -416,9 +435,17 @@ typedef struct {
     {
         location = [touch locationInView:self];
         location.y = bounds.size.height - location.y;
+        /*-------------------------------*/
+        previousLocation = [touch previousLocationInView:self];
+        previousLocation.y = bounds.size.height - previousLocation.y;
     }
     
-    [self renderLineFormPoint:previousLocation toPoint:location];
+    NSMutableDictionary *pointDict = [NSMutableDictionary dictionary];
+    [pointDict setObject:[NSNumber numberWithFloat:previousLocation.x] forKey:@"mX"];
+    [pointDict setObject:[NSNumber numberWithFloat:previousLocation.y] forKey:@"mY"];
+    [self.pointArr addObject:pointDict];
+    
+    [self renderLineFromPoint:previousLocation toPoint:location];
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -430,7 +457,11 @@ typedef struct {
         firshTouch = NO;
         previousLocation = [touch previousLocationInView:self];
         previousLocation.y = bounds.size.height - previousLocation.y;
-        [self renderLineFormPoint:previousLocation toPoint:location];
+        [self renderLineFromPoint:previousLocation toPoint:location];
+        NSMutableDictionary *pointDict = [NSMutableDictionary dictionary];
+        [pointDict setObject:[NSNumber numberWithFloat:previousLocation.x] forKey:@"mX"];
+        [pointDict setObject:[NSNumber numberWithFloat:previousLocation.y] forKey:@"mY"];
+        [self.pointArr addObject:pointDict];
     }
 }
 

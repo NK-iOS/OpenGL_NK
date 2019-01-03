@@ -46,6 +46,14 @@
     paintingView.frame = self.view.bounds;
     [self.view addSubview:paintingView];
     
+    // 清除
+    UIButton *eraseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    eraseBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [eraseBtn setTitle:@"erase" forState:UIControlStateNormal];
+    [eraseBtn addTarget:self action:@selector(clearDraw) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:eraseBtn];
+    eraseBtn.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - 60) * 0.5, kTopMargin, 60, 30);
+    
     // 调色板
     UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:
                                                                                       [[UIImage imageNamed:@"Red"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal],
@@ -73,6 +81,11 @@
     _selectSound = [[SoundEffect alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Select" ofType:@"caf"]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eraseView) name:@"shake" object:nil];
+}
+
+- (void)clearDraw
+{
+    [self eraseView];
 }
 
 - (void)eraseView
