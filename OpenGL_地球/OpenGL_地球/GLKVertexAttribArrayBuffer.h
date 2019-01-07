@@ -20,7 +20,7 @@
 @property (nonatomic, readonly) GLsizeiptr bufferSizeBytes;
 @property (nonatomic, readonly) GLsizeiptr stride;
 
-+ (void)drawPreparedArraysWithModel:(GLenum)mode startVertexIndex:(GLint)first numberOfVertices:(GLsizei)count;
++ (void)drawPreparedArraysWithMode:(GLenum)mode startVertexIndex:(GLint)first numberOfVertices:(GLsizei)count;
 
 - (id)initWithAttribStride:(GLsizeiptr)pStride numberOfVertices:(GLsizei)count bytes:(const GLvoid *)dataPtr usage:(GLenum)usage;
 
@@ -29,4 +29,5 @@
 - (void)drawArrayWithMode:(GLenum)mode startVertexIndex:(GLint)first numberOfVertices:(GLsizei)count;
 
 - (void)reinitWithAttribStride:(GLsizeiptr)pStride numberOfVertices:(GLsizei)count bytes:(const GLvoid *)dataPtr;
+
 @end

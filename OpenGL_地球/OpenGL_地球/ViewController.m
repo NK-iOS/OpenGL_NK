@@ -117,7 +117,7 @@ static const GLfloat SceneMoonDistanceFromEarth = 2.0;
     
     [self.baseEffect prepareToDraw];
     
-    [GLKVertexAttribArrayBuffer drawPreparedArraysWithModel:GL_TRIANGLES startVertexIndex:0 numberOfVertices:sphereNumVerts];
+    [GLKVertexAttribArrayBuffer drawPreparedArraysWithMode:GL_TRIANGLES startVertexIndex:0 numberOfVertices:sphereNumVerts];
     
     GLKMatrixStackPop(self.modelViewMatrixStack);
     
@@ -137,9 +137,11 @@ static const GLfloat SceneMoonDistanceFromEarth = 2.0;
     
     GLKMatrixStackRotate(self.modelViewMatrixStack, GLKMathDegreesToRadians(self.moonRotationAngleDegrees), 0.0, 1.0, 0.0);
     
+    self.baseEffect.transform.modelviewMatrix = GLKMatrixStackGetMatrix4(self.modelViewMatrixStack);
+    
     [self.baseEffect prepareToDraw];
     
-    [GLKVertexAttribArrayBuffer drawPreparedArraysWithModel:GL_TRIANGLES startVertexIndex:0 numberOfVertices:sphereNumVerts];
+    [GLKVertexAttribArrayBuffer drawPreparedArraysWithMode:GL_TRIANGLES startVertexIndex:0 numberOfVertices:sphereNumVerts];
     
     GLKMatrixStackPop(self.modelViewMatrixStack);
     self.baseEffect.transform.modelviewMatrix = GLKMatrixStackGetMatrix4(self.modelViewMatrixStack);

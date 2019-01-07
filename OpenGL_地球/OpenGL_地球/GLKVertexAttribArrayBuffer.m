@@ -94,7 +94,7 @@
     glDrawArrays(mode, first, count);
 }
 
-+ (void)drawPreparedArraysWithModel:(GLenum)mode startVertexIndex:(GLint)first numberOfVertices:(GLsizei)count
++ (void)drawPreparedArraysWithMode:(GLenum)mode startVertexIndex:(GLint)first numberOfVertices:(GLsizei)count
 {
     glDrawArrays(mode, first, count);
 }
@@ -107,4 +107,7 @@
         name = 0;
     }
 }
+
 @end
+
+

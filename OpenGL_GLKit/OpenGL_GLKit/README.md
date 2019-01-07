@@ -1,3 +1,9 @@
 # OpenGL_NK
 三维坐标系
 
+写到这个demo才仿佛有点明白了
+
+个人觉得应该先了解一下GLKit，然后再去写OpenGLES和shader能够更容易理解一些
+如果一上来就从OpenGLES上手，很容易产生畏惧感
+
+拿OpenGL_GLKit的旋转变换和OpenGL_三维变换各个环节比较，就相对容易理解
