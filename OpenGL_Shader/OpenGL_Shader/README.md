@@ -1,6 +1,6 @@
 # OpenGL_NK
 OpenGL 是在三维坐标系上绘制
-
+https://blog.csdn.net/icetime17/article/details/50436927
 1、自定义着色器
 出现的问题：
 1> 对GLSL语言不熟（https://www.tuicool.com/articles/yEBFvmA）
